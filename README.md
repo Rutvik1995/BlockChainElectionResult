@@ -19,3 +19,29 @@ Election.deployed().then(
         app = instance;
     }
 ) 
+
+<br>
+<h2><b>truffle migrate --reset</b></h2>
+Blockchain is immutable (unchangable) so we --reset everytime<br>
+It is like dropping all the table in database and starting from begining <br>
+
+call function get candidate at 1
+app.candidate(1).then( function(c){candidate =c;})
+undefined
+truffle(development)> candidate
+Result {
+  '0': <BN: 1>,
+  '1': 'Candidate 1',
+  '2': <BN: 0>,
+  id: <BN: 1>,
+  name: 'Candidate 1',
+  voteCount: <BN: 0> }
+truffle(development)> candidate[0]
+<BN: 1>
+truffle(development)> candidate[1]
+'Candidate 1'
+truffle(development)> candidate[2]
+<BN: 0>
+truffle(development)> candidate[2].toNumber()
+0
+truffle(development)> 
