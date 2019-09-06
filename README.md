@@ -2,7 +2,7 @@
 
 
 #truffle unbox pet-shop <br>
-This command generate boiler plate file and diretory for truffle project
+<b>This command generate boiler plate file and diretory for truffle project<b>
 
 #truffle migrate 
 To migrate the contract
