@@ -1,7 +1,7 @@
 # Project Detail
 
 
-#truffle unbox pet-shop
+#truffle unbox pet-shop <br>
 This command generate boiler plate file and diretory for truffle project
 
 #truffle migrate 
