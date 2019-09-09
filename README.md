@@ -53,4 +53,9 @@ web3.eth.getAccounts()
 <br>
 <h4>lite-server</h4><br>
 npm run dev<br>
-This command run lite serve and open browser 
+This command run lite serve and open browser <br>
+
+
+<br>
+<h4>Command to get all accounts</h4><br>
+web3.eth.getAccounts().then(function(accounts){acc=accounts;})acc

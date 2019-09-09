@@ -16,6 +16,8 @@ contract Election {
     //Store the candidate
      mapping(uint=>Candidate) public candidate;
 
+     mapping(address=>bool) public voters;
+
     //Store candidate count
      uint public candidateCount;
 
@@ -25,6 +27,33 @@ contract Election {
      }
 
   
+    function vote (uint  _candidateId) public {
+
+        uint checkId = _candidateId;
+
+        require( (voters[msg.sender]==false)  && (checkId<=candidateCount) && (checkId>0));
+
+
+
+        if(voters[msg.sender]!=true ){
+            // record the voter has voted 
+            voters[msg.sender]=true;
+
+            //update Cadidaye vote count
+           uint countAdd= candidate[_candidateId].voteCount;
+            countAdd++;
+            candidate[_candidateId].voteCount=countAdd++;
+
+        }
+        else{
+
+        }
+
+
+       
+    }
+
+
 
     //Constructor
     constructor() public{
