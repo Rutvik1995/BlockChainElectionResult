@@ -14,11 +14,7 @@ Make sure the ganache is open which is our local blockchain <br>
 To go into truffle console mode<br>
 
 <h2>call function to check variable inside the contracts</h2><br>
-Election.deployed().then(
-    function(instance){
-        app = instance;
-    }
-) 
+Election.deployed().then(function(instance){app = instance;}) 
 
 <br>
 <h2><b>truffle migrate --reset</b></h2>
@@ -32,6 +28,7 @@ truffle(development)> candidate<br>
 Result {
   '0': <BN: 1>,
   '1': 'Candidate 1',
+
   '2': <BN: 0>,
   id: <BN: 1>,
   name: 'Candidate 1',
@@ -59,3 +56,8 @@ This command run lite serve and open browser <br>
 <br>
 <h4>Command to get all accounts</h4><br>
 web3.eth.getAccounts().then(function(accounts){acc=accounts;})acc
+
+
+
+
+web3.eth.getAccounts().then(function(allAcc){acc=allAcc;}).then(function(acc){selected=acc[0];})
