@@ -49,6 +49,8 @@ App = {
 
 render:function(){
   var electionInstance;
+  var voteForm =$("#voteForm");
+  console.log(voteForm);
   var loader = $("#loader");
   var content = $("#content");
  // loader.show();
@@ -68,8 +70,10 @@ render:function(){
 
 web3.eth.getCoinbase(function(err,account){
   if(err==null){
-    App.account=account;
-    $("#accountAddress").html("Your account: "+account);
+    console.log(account);
+    console.log(web3.eth.accounts[0]);
+    App.account=web3.eth.accounts[6];
+    $("#accountAddress").html("Your account: "+web3.eth.accounts[6]);
   }
 })
 
@@ -85,6 +89,20 @@ App.contracts.Election.deployed().then(function(instance){
   var candidateList=[]; 
   var count=0;
   var selectCandidateUI = document.getElementById("selectCandidate");
+  var candidateHasVote
+ electionInstance.voters(App.account).then(function(value){
+  candidateHasVote=value;
+  if(candidateHasVote){
+    // var d = document.getElementById("voteButton");
+    // console.log(d);
+    // document.getElementById("selectCandidate").style.display='none';
+    // d.style.display='none';
+    // console.log(d);
+    document.getElementById("voteDiv").style.display='none';
+  }
+  
+ }) 
+
 
   for(var i=1;i<=candidateCount;i++){
   //  candidateList[count]=candidate[1];
@@ -151,13 +169,32 @@ for(var i=1;i<=candidateCount;i++){
   //    */
   // }
   castVote: function(){
+    var electionInstance;
+    var selectCandidate;
+    var selectedCandidateId;
   alert("in cast vote");
   //var selectCandidate = document.getElementById("selectCandidate");
   selectTags = document.getElementById("selectCandidate");
   console.log(selectTags.selectedIndex);
   
-    
 
+  App.contracts.Election.deployed().then(function(instance){ 
+    electionInstance= instance; 
+    return  electionInstance.candidate(selectTags.selectedIndex);
+
+  }).then(function(c){
+    selectCandidate = c;
+   //console.log(selectCandidate[1]);
+    console.log(selectCandidate[1]);
+    console.log(selectCandidate[0].toNumber());
+    selectedCandidateId=selectCandidate[0].toNumber();
+    console.log( selectedCandidateId);
+    console.log( electionInstance);
+    console.log(App.account);
+   electionInstance.vote(selectedCandidateId,{from:App.account})
+  })
+
+  App.init();
   }
 };
 
