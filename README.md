@@ -66,3 +66,16 @@ web3.eth.getAccounts().then(function(accounts){acc=accounts;})acc
 
 
 web3.eth.getAccounts().then(function(allAcc){acc=allAcc;}).then(function(acc){selected=acc[0];})
+
+
+
+
+
+<br>
+<h2> Print the variable in truffle console</h2>
+app.candidate();
+-----------------
+'Candidate 1'
+
+
+
