@@ -15,6 +15,7 @@ To go into truffle console mode<br>
 
 <h2>call function to check variable inside the contracts</h2><br>
 Election.deployed().then(function(instance){app = instance;}) 
+Meme.deployed().then(function(instance){app = instance;})
 
 app.candidate();
 -----------------
@@ -76,6 +77,21 @@ web3.eth.getAccounts().then(function(allAcc){acc=allAcc;}).then(function(acc){se
 app.candidate();
 -----------------
 'Candidate 1'
+
+
+
+
+<h4>Friend List</h4>
+app.addRequest('rpatel@csus.edu','smit@gmail.com')
+<br>
+app.addRequest('smit@gmail.com','vivek@gmail.com')
+<br>
+app.addRequest('vivek@gmail.com','smit@gmail.com')
+<br>
+app.addRequest('rpatel@csus.edu','vivek@gmail.com')
+<br>
+app.addRequest('vivek@gmail.com','rpatel@csus.edu')
+<br>
 
 
 
