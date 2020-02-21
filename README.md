@@ -15,6 +15,8 @@ To go into truffle console mode<br>
 
 <h2>call function to check variable inside the contracts</h2><br>
 Election.deployed().then(function(instance){app = instance;}) 
+<br>
+<br>
 Meme.deployed().then(function(instance){app = instance;})
 
 app.candidate();
